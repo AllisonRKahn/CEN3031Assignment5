@@ -1,0 +1,26 @@
+<!-- Fill in this file to create a UI view for editing listing entries. -->
+
+<div class="row" ng-controller="ListingsController" ng-init="findOne()">
+  <div class="col-md-offset-1 col-md-10">
+    <div ng-show="error" class="text-danger">
+      <strong ng-bind="error"></strong>
+    </div>
+    <div class="jumbotron">
+      <img id="loader" ng-show="loading" src="/../../img/484.gif">
+      <div ng-show="listing">
+        <h2>Edit {{listing.name}}:</h2>
+		<h5>Current Name: {{listing.name}}</h5>
+		<h5>Current Code: {{listing.code}}</h5>
+
+		<form name="updateFrm" ng-submit="updateSkill()">
+				<h5>Current Address: {{listing.address}}</h5>
+                Update Name: <input type="text" name="name" ng-model="name" /><p></p>
+                Update Code: <input type="text" name="code" ng-model="code" /><p></p>
+                Update Address: <input type="text" name="address" ng-model="address" /><p></p>
+                
+                <button ng-disabled="skillsFrm.$invalid" ng-click="update(updateFrm.$valid);">Update</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
